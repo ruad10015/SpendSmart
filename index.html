@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spend Smart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Spend Smart</h1>
+    <div class="container">
+        <div class="form-group">
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" placeholder="Enter product name">
+        </div>
+        <div class="form-group">
+            <label for="price">Price (0 - 200,000)</label>
+            <input type="number" id="price" min="0" max="200000" placeholder="Enter price">
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category">
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" max="">
+        </div>
+        <div class="form-group">
+            <button onclick="addExpense()">Add Expense</button>
+        </div>
+
+        <div class="summary">
+            <h3>Summary</h3>
+            <div class="summary-item">Today: $<span id="today-total">0</span></div>
+            <div class="summary-item">This Week: $<span id="week-total">0</span></div>
+            <div class="summary-item">This Month: $<span id="month-total">0</span></div>
+            <div class="summary-item">This Year: $<span id="year-total">0</span></div>
+        </div>
+
+        <div class="filter-group">
+            <label for="filter-month">Month</label>
+            <select id="filter-month">
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filter-year">Year (2000 - 2030)</label>
+            <input type="number" id="filter-year" min="2000" max="2030" placeholder="Enter year">
+        </div>
+        <div class="form-group">
+            <button onclick="filterExpenses()">Filter Expenses</button>
+        </div>
+        <div class="filtered-summary">
+            <h3>Filtered Summary</h3>
+            <div class="summary-item">Total for Selected Month: $<span id="filtered-total">0</span></div>
+        </div>
+
+        <div class="expenses-list">
+            <h3>Expenses List</h3>
+            <ul id="expenses-ul"></ul>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
